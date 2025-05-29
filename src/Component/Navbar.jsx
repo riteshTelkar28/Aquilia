@@ -14,7 +14,6 @@ const Navbar = () => {
             <li><a href='#' className={navProperty}>About us</a></li>
             <li><a href='#' className={navProperty}>Blog</a></li>
             <li><a href='#' className={navProperty}>Contact us</a></li>
-           
             <Button/>
             </ul>
         </nav>

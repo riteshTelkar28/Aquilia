@@ -6,12 +6,12 @@ import { images } from '../../../public/images/image';
 const Ourstrengthmain = () => {
   return (
     <>
-      <div className=' w-full h-[638px] py-24  flex flex-col items-center'>
+      <div className=' w-full h-[638px] py-[100px] px-[120px]  flex flex-col items-center'>
        
-        <h1 className='text-4xl font-extrabold text-[#E57373] mb-20'>Our Strength</h1>
+        <h1 className='text-4xl font-extrabold text-[#E57373] mb-[40px]'>Our Strength</h1>
         
      
-        <div className='text-white flex flex-row  justify-center w-full px-10'>
+        <div className='text-white flex flex-row  justify-center w-full px-[64px]'>
           <Ourstrengthchild
             number="01"
             title="Research"

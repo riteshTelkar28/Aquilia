@@ -10,8 +10,8 @@ const ServiceCard = (props) => {
       
       {/* Card 1 - Design */}
       <div className="bg-white rounded-2xl shadow-md  max-w-md p-4 w-[370px] hover:scale-110 transition-transform duration-300 ease-in">
-        <h2 className="text-2xl font-bold text-[#0f0f0f] mb-3 ">{props.head}</h2>
-        <ul className="text-gray-700 leading-6 list-disc  list-inside text-xs">
+        <h2 className="text-4xl font-bold text-[#0f0f0f] mb-3 ">{props.head}</h2>
+        <ul className="font-semibold text-black leading-6 list-disc  list-inside text-lg/(100%)">
           <li>{props.detail.item1}</li>
           <li> {props.detail.item2} </li>
           <li>{props.detail.item3}</li>

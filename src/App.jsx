@@ -30,9 +30,7 @@ function App() {
     <Service/>
     <Testimonials/>
     <Blogx/>
-    <Footer/> 
-          {/* <Ourstrengthchild/> */}
-      
+    <Footer/>       
     </div>
 
     </>

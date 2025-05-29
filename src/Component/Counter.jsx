@@ -4,8 +4,8 @@ import React from "react";
 import CountUp from "react-countup";
 const Counter = () => {
   return (
-    <div className="bg-[#13252F] w-full h-[600px] flex items-center justify-center ">
-      <div className="grid grid-cols-3  gap-0 w-full max-w-5xl pt-14 border-white">
+    <div className="bg-[#13252F] w-full h-[500px] flex items-center justify-center ">
+      <div className="grid grid-cols-3  gap-0 w-full max-w-5xl  border-white">
 
 
         <div className="flex flex-col items-center justify-center  text-white border-r-2 border-b-2 border-white">
