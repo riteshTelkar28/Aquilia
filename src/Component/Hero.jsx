@@ -9,9 +9,7 @@ const Hero = () => {
    <div
   style={{ backgroundImage: `url(${images.herobg})` }}
   className="bg-cover bg-center h-screen w-full"
->
-    <Navbar/>
-   
+>   
     <div className=" text-white min-h-screen flex flex-col items-center justify-center px-[169px]  pb-[100px] gap-5">
             
             <h2 className="text-lg font-semibold mb-3 bg-[#E26D5A] rounded-full text-center py-1 px-4">

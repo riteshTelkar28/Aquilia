@@ -10,10 +10,8 @@ import Counter from './Component/Counter'
 import Testimonials from './Component/testimonial/Testimonials'
 
 import Service from './Component/service/Service'
-import Blogcard from './Component/Blog/Blogcard'
 import Blogx from './Component/Blog/Blogx'
 import Footer from './Component/Footer'
-import Ourstrengthchild from './Component/OurStrength/Ourstrengthchild'
 import Carousel from './Component/Carousel'
 
 function App() {
@@ -21,6 +19,7 @@ function App() {
   return (
     <>
     <div className='relative text-indent-[25px]'> 
+      <Navbar/>
       <Hero/>
     <Slider/>
     <Carousel/>
