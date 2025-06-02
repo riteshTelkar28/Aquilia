@@ -1,79 +1,117 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
+import Slider from 'react-slick';
 import c1 from '../../public/images/c1.jpg';
 import c2 from '../../public/images/c2.jpg';
 import c3 from '../../public/images/c3.jpg';
 
-const images = [c1, c2, c3];
-const IMAGE_WIDTH = 350;
-const GAP = 45;
-const STEP = IMAGE_WIDTH + GAP;
+const slickStyles = `
+  .slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    user-select: none;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  .slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    transition: all 0.5s ease;
+  }
+  .slick-slide.slick-active {
+    display: block;
+  }
+  .slick-slide img {
+    display: block;
+  }
+  .slick-center .card-container {
+    transform: scale(1.2);
+    z-index: 2;
+  }
+  .slick-slide:not(.slick-center) .card-container {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+`;
 
 const Carousel = () => {
-  const [queue, setQueue] = useState(images);
-  const [offset, setOffset] = useState(0);
-  const [transitionEnabled, setTransitionEnabled] = useState(true);
+  const cards = [
+    { id: 1, image: c1 },
+    { id: 2, image: c2 },
+    { id: 3, image: c3 },
+    { id: 4, image: c1 }, // duplicate
+    { id: 5, image: c2 }, // duplicate
+    { id: 6, image: c3 }, // duplicate
+  ];
 
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTransitionEnabled(true);
-      setOffset(-STEP);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const onTransitionEnd = () => {
-    if (!transitionEnabled) return;
-
-    setTransitionEnabled(false); // Turn off transition before reset
-
-    setQueue((prevQueue) => {
-      const [first, ...rest] = prevQueue;
-      return [...rest, first];
-    });
-
-    // Reset offset after queue update with no transition
-    setTimeout(() => {
-      setOffset(0);
-    }, 0);
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    pauseOnHover: false,
+    arrows: false,
+    centerMode: true,
+    centerPadding: '0px',
+    focusOnSelect: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          centerMode: false,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="w-full overflow-hidden py-6 mt-[80px] h-[450px] pb-[100px] flex justify-center items-center">
-      <div
-        ref={containerRef}
-        className="flex gap-[50px]"
-        style={{
-          transform: `translateX(${offset}px)`,
-          transition: transitionEnabled ? 'transform 1.2s ease-in-out' : 'none',
-        }}
-        onTransitionEnd={onTransitionEnd}
-      >
-        {queue.map((img, idx) => {
-          const isCenter = idx === 1;
-          return (
-            <div
-              key={idx}
-              className="flex-shrink-0 w-[390px] h-[350px] rounded-2xl overflow-hidden"
-              style={{
-                transition: 'transform 0.7s ease-in-out, opacity 0.7s ease-in-out, box-shadow 0.7s ease-in-out',
-                transform: isCenter ? 'scale(1.1)' : 'scale(0.9)',
-                opacity: isCenter ? 1 : 0.4,
-                zIndex: isCenter ? 10 : 0,
-                boxShadow: isCenter ? '0 10px 20px rgba(0, 0, 0, 0.5)' : 'none',
-              }}
-            >
-              <img
-                src={img}
-                alt={`slide-${idx}`}
-                className="w-full h-full object-cover rounded-2xl"
-              />
-            </div>
-          );
-        })}
+    <>
+      <style dangerouslySetInnerHTML={{ __html: slickStyles }} />
+      <div className="w-full h-[500px] py-16 bg-black">
+        <div className="max-w-16xl mx-auto px-4">
+          <div className="relative">
+            <Slider {...settings}>
+              {cards.map((card) => (
+                <div key={card.id} className="px-4">
+                  <div className="card-container transition-all duration-500 ease-in-out">
+                    <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                      <div className="relative overflow-hidden">
+                        <img
+                          src={card.image}
+                          // alt={Slide ${card.id}}
+                          className="w-full h-80 object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

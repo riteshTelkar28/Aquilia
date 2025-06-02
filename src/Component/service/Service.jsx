@@ -27,8 +27,8 @@ const Service = () => {
 
   return (
     <div 
-      style={{ backgroundImage: `url(${images.servicebg})` }}
-      className='w-full max-w-[1440px] h-[796px] mx-auto flex justify-between flex-row px-[120px] items-center bg-cover'
+      style={{ backgroundImage: `url(${images.servicebg})`}}
+      className='w-full max-w-[1440px] h-[796px] mx-auto flex justify-between flex-row px-[120px] items-center bg-cover +'
     >
       <div className='text-left w-1/2 flex flex-col gap-6 mt-[250px]'>
         <h1 className='text-4xl font-bold text-[#E26D5A]'>Services</h1>
