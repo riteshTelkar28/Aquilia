@@ -13,7 +13,7 @@ const About = () => {
           className="w-[417px] h-[466px] rounded-l-[44px] rounded-r-[46px] rounded-b-[244px] relative bottom-[30px]"
         />
       </div>
-      <div className="relative border-trace text-left w-full md:w-[617px] h-[352px] flex flex-col gap-6 ml-[66px] mr-[120px] mb-[60.84px] mt-[61px] rounded-2xl p-2 transition-transform duration-300 ease-in">
+      <div className="relative border-trace text-left w-full md:w-[617px] h-[352px] flex flex-col gap-6 ml-[66px] mr-[120px] mb-[60.84px] mt-[61px] rounded-2xl p-3 pl-[30px]  transition-transform duration-300 ease-in">
         <h1 className="text-2xl text-[#E26D5A]">About us</h1>
         <p>
           It is a long established fact that a reader will be distracted by the

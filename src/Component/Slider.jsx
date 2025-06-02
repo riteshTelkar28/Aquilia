@@ -1,35 +1,8 @@
-// import React from 'react'
-// import { images } from '../../public/images/image'
+import React from "react";
+import { images } from "../../public/images/image";
 
-// const Slider = () => {
-//   return (
-//   <>
-   
-//     <div className='bg-[#172933] w-full flex justify-between items-center h-[70px] px-[50px]'>
-//      <marquee behavior="" direction=""> <div className='bg-[#172933] w-full flex justify-between items-center h-[70px] px-[50px]'>
-//             <img src={images.sliderlogo1} alt="" />
-//             <img src={images.sliderlogo2} alt="" />
-//             <img src={images.sliderlogo3} alt="" />
-//             <img src={images.sliderlogo4} alt="" />
-//             <img src={images.sliderlogo5} alt="" />
-//             <img src={images.sliderlogo6} alt="" />
-//             <img src={images.sliderlogo7} alt="" />
-//             <img src={images.sliderlogo8} alt="" />
-//     </div>
-//     </marquee>
-//     </div>
-  
-//     </>
-//   )
-// }
-
-// export default Slider
-
-import React from 'react';
-import { images } from '../../public/images/image'; 
 const Slider = () => {
-  
-  const sliderLogos = [
+  const logos = [
     images.sliderlogo1,
     images.sliderlogo2,
     images.sliderlogo3,
@@ -41,32 +14,32 @@ const Slider = () => {
   ];
 
   return (
-    <>
-    
-      <div className='bg-[#172933] w-full h-[70px] flex items-center overflow-hidden'>
-     
-        <marquee behavior="scroll" direction="left" scrollamount="infinite" className="w-full">
-        
-          {sliderLogos.map((logoSrc,index) => (
-            <img
-              key={index}
-              src={logoSrc}
-             
-              className='h-8 mx-8 inline-block' 
-            />
-          ))}
-      
-          {sliderLogos.map((logoSrc,index) => (
-            <img
-              key={index}
-              src={logoSrc}
-          
-              className='h-8 mx-8 inline-block'
-            />
-          ))}
-        </marquee>
+    <div className="w-full bg-[#172933] overflow-hidden h-[70px] flex items-center">
+      <div
+        className="flex whitespace-nowrap  "
+        style={{
+          animation: "scroll 20s linear infinite",
+          width: "fit-content",
+        }}
+      >
+        {[...logos, ...logos].map((logo, index) => (
+          <img
+            key={index}
+            src={logo}
+            alt={`logo-${index}`}
+            className="h-8 mx-8 hover:bg-[#E26D5A] hover:scale-110 ease-in  hover:rounded-3xl"
+          />
+        ))}
       </div>
-    </>
+      <style>
+        {`
+    @keyframes scroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+  `}
+      </style>
+    </div>
   );
 };
 
